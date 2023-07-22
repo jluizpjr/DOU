@@ -1,0 +1,251 @@
+Total de Contratos para cnpj 00.103.115/0001-01: 0
+Total de Contratos para cnpj 00.233.883/0001-80: 0
+Total de Contratos para cnpj 00.233.883/0003-41: 1
+Total de Contratos para cnpj 00.379.270/0002-36: 0
+Total de Contratos para cnpj 00.577.839/0001-97: 0
+Total de Contratos para cnpj 00.593.850/0001-40: 0
+Total de Contratos para cnpj 00.671.063/0001-70: 0
+Traceback (most recent call last):
+  File "/home/jluiz/Dev/DOU/ComprasCentralizadas.py", line 68, in <module>
+    ConsultaContratos(fornecedor)
+  File "/home/jluiz/Dev/DOU/ComprasCentralizadas.py", line 42, in ConsultaContratos
+    response = requests.get(base_url+contratos_base_page_url+cnpj_fmt)
+  File "/home/jluiz/.local/lib/python3.10/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/jluiz/.local/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/jluiz/.local/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/jluiz/.local/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/jluiz/.local/lib/python3.10/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/home/jluiz/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 790, in urlopen
+    response = self._make_request(
+  File "/home/jluiz/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 536, in _make_request
+    response = conn.getresponse()
+  File "/home/jluiz/.local/lib/python3.10/site-packages/urllib3/connection.py", line 461, in getresponse
+    httplib_response = super().getresponse()
+  File "/usr/lib/python3.10/http/client.py", line 1374, in getresponse
+    response.begin()
+  File "/usr/lib/python3.10/http/client.py", line 318, in begin
+    version, status, reason = self._read_status()
+  File "/usr/lib/python3.10/http/client.py", line 279, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "/usr/lib/python3.10/socket.py", line 705, in readinto
+    return self._sock.recv_into(b)
+  File "/usr/lib/python3.10/ssl.py", line 1274, in recv_into
+    return self.read(nbytes, buffer)
+  File "/usr/lib/python3.10/ssl.py", line 1130, in read
+    return self._sslobj.read(len, buffer)
+KeyboardInterrupt
+Total de Contratos para cnpj 00.103.115/0001-01: 0
+Total de Contratos para cnpj 00.233.883/0001-80: 0
+Total de Contratos para cnpj 00.233.883/0003-41: 1
+Total de Contratos para cnpj 00.379.270/0002-36: 0
+Total de Contratos para cnpj 00.577.839/0001-97: 0
+Total de Contratos para cnpj 00.593.850/0001-40: 0
+Total de Contratos para cnpj 00.671.063/0001-70: 0
+Total de Contratos para cnpj 00.710.799/0001-00: 1
+Total de Contratos para cnpj 00.746.918/0001-84: 0
+Total de Contratos para cnpj 00.767.381/0001-39: 0
+Total de Contratos para cnpj 00.858.039/0001-44: 0
+Traceback (most recent call last):
+  File "/home/jluiz/Dev/DOU/ComprasCentralizadas.py", line 68, in <module>
+    ConsultaContratos(fornecedor)
+  File "/home/jluiz/Dev/DOU/ComprasCentralizadas.py", line 42, in ConsultaContratos
+    response = requests.get(base_url+contratos_base_page_url+cnpj_fmt)
+  File "/home/jluiz/.local/lib/python3.10/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/jluiz/.local/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/jluiz/.local/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/jluiz/.local/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/jluiz/.local/lib/python3.10/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/home/jluiz/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 790, in urlopen
+    response = self._make_request(
+  File "/home/jluiz/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 536, in _make_request
+    response = conn.getresponse()
+  File "/home/jluiz/.local/lib/python3.10/site-packages/urllib3/connection.py", line 461, in getresponse
+    httplib_response = super().getresponse()
+  File "/usr/lib/python3.10/http/client.py", line 1374, in getresponse
+    response.begin()
+  File "/usr/lib/python3.10/http/client.py", line 318, in begin
+    version, status, reason = self._read_status()
+  File "/usr/lib/python3.10/http/client.py", line 279, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "/usr/lib/python3.10/socket.py", line 705, in readinto
+    return self._sock.recv_into(b)
+  File "/usr/lib/python3.10/ssl.py", line 1274, in recv_into
+    return self.read(nbytes, buffer)
+  File "/usr/lib/python3.10/ssl.py", line 1130, in read
+    return self._sslobj.read(len, buffer)
+KeyboardInterrupt
+Total de Contratos para cnpj 00.103.115/0001-01: 0
+Total de Contratos para cnpj 00.233.883/0001-80: 0
+Total de Contratos para cnpj 00.233.883/0003-41: 1
+Total de Contratos para cnpj 00.379.270/0002-36: 0
+Total de Contratos para cnpj 00.577.839/0001-97: 0
+Total de Contratos para cnpj 00.593.850/0001-40: 0
+Total de Contratos para cnpj 00.671.063/0001-70: 0
+Total de Contratos para cnpj 00.710.799/0001-00: 1
+Total de Contratos para cnpj 00.746.918/0001-84: 0
+Total de Contratos para cnpj 00.767.381/0001-39: 0
+Total de Contratos para cnpj 00.858.039/0001-44: 0
+Total de Contratos para cnpj 00.864.586/0001-32: 0
+Total de Contratos para cnpj 00.990.055/0001-96: 0
+Total de Contratos para cnpj 01.023.164/0001-05: 1
+Total de Contratos para cnpj 01.068.730/0001-97: 0
+Total de Contratos para cnpj 01.127.357/0001-06: 0
+Total de Contratos para cnpj 01.207.219/0001-29: 1
+Total de Contratos para cnpj 01.221.974/0001-68: 0
+Total de Contratos para cnpj 01.289.298/0001-64: 0
+Total de Contratos para cnpj 01.310.330/0001-46: 0
+Total de Contratos para cnpj 01.442.871/0001-28: 0
+Total de Contratos para cnpj 01.454.772/0001-66: 0
+Total de Contratos para cnpj 01.485.079/0002-31: 0
+Total de Contratos para cnpj 01.549.227/0001-53: 0
+Total de Contratos para cnpj 01.564.600/0001-45: 0
+Total de Contratos para cnpj 01.596.544/0001-20: 0
+Total de Contratos para cnpj 01.645.738/0002-50: 1
+Total de Contratos para cnpj 01.645.738/0004-11: 0
+Total de Contratos para cnpj 01.645.738/0011-40: 0
+Total de Contratos para cnpj 01.790.382/0001-67: 0
+Total de Contratos para cnpj 02.227.843/0001-50: 0
+Total de Contratos para cnpj 02.251.665/0001-01: 0
+Total de Contratos para cnpj 02.302.296/0001-20: 0
+Total de Contratos para cnpj 02.309.990/0001-70: 0
+Total de Contratos para cnpj 02.318.005/0001-92: 1
+Total de Contratos para cnpj 02.570.401/0001-02: 0
+Total de Contratos para cnpj 02.575.047/0001-09: 0
+Total de Contratos para cnpj 02.606.275/0001-07: 0
+Total de Contratos para cnpj 02.647.965/0001-04: 0
+Total de Contratos para cnpj 02.659.581/0001-01: 0
+Total de Contratos para cnpj 02.788.778/0001-32: 0
+Total de Contratos para cnpj 02.804.955/0001-27: 0
+Total de Contratos para cnpj 02.804.955/0006-31: 0
+Total de Contratos para cnpj 02.845.132/0001-40: 0
+Total de Contratos para cnpj 02.870.940/0001-67: 0
+Total de Contratos para cnpj 02.923.013/0001-68: 0
+Total de Contratos para cnpj 02.937.963/0001-41: 0
+Total de Contratos para cnpj 03.066.534/0001-09: 0
+Total de Contratos para cnpj 03.098.578/0001-10: 0
+Total de Contratos para cnpj 03.111.034/0001-41: 0
+Total de Contratos para cnpj 03.147.465/0001-68: 0
+Total de Contratos para cnpj 03.159.713/0001-90: 0
+Traceback (most recent call last):
+  File "/home/jluiz/Dev/DOU/ComprasCentralizadas.py", line 68, in <module>
+    ConsultaContratos(fornecedor)
+  File "/home/jluiz/Dev/DOU/ComprasCentralizadas.py", line 42, in ConsultaContratos
+    response = requests.get(base_url+contratos_base_page_url+cnpj_fmt)
+  File "/home/jluiz/.local/lib/python3.10/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/jluiz/.local/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/jluiz/.local/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/jluiz/.local/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/jluiz/.local/lib/python3.10/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/home/jluiz/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 790, in urlopen
+    response = self._make_request(
+  File "/home/jluiz/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 536, in _make_request
+    response = conn.getresponse()
+  File "/home/jluiz/.local/lib/python3.10/site-packages/urllib3/connection.py", line 461, in getresponse
+    httplib_response = super().getresponse()
+  File "/usr/lib/python3.10/http/client.py", line 1374, in getresponse
+    response.begin()
+  File "/usr/lib/python3.10/http/client.py", line 318, in begin
+    version, status, reason = self._read_status()
+  File "/usr/lib/python3.10/http/client.py", line 279, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "/usr/lib/python3.10/socket.py", line 705, in readinto
+    return self._sock.recv_into(b)
+  File "/usr/lib/python3.10/ssl.py", line 1274, in recv_into
+    return self.read(nbytes, buffer)
+  File "/usr/lib/python3.10/ssl.py", line 1130, in read
+    return self._sslobj.read(len, buffer)
+KeyboardInterrupt
+Total de Contratos para cnpj 00.103.115/0001-01: 0
+Traceback (most recent call last):
+  File "/home/jluiz/Dev/DOU/ComprasCentralizadas.py", line 68, in <module>
+    ConsultaContratos(fornecedor)
+  File "/home/jluiz/Dev/DOU/ComprasCentralizadas.py", line 42, in ConsultaContratos
+    response = requests.get(base_url+contratos_base_page_url+cnpj_fmt)
+  File "/home/jluiz/.local/lib/python3.10/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/jluiz/.local/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/jluiz/.local/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/jluiz/.local/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/jluiz/.local/lib/python3.10/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/home/jluiz/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 790, in urlopen
+    response = self._make_request(
+  File "/home/jluiz/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 536, in _make_request
+    response = conn.getresponse()
+  File "/home/jluiz/.local/lib/python3.10/site-packages/urllib3/connection.py", line 461, in getresponse
+    httplib_response = super().getresponse()
+  File "/usr/lib/python3.10/http/client.py", line 1374, in getresponse
+    response.begin()
+  File "/usr/lib/python3.10/http/client.py", line 318, in begin
+    version, status, reason = self._read_status()
+  File "/usr/lib/python3.10/http/client.py", line 279, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "/usr/lib/python3.10/socket.py", line 705, in readinto
+    return self._sock.recv_into(b)
+  File "/usr/lib/python3.10/ssl.py", line 1274, in recv_into
+    return self.read(nbytes, buffer)
+  File "/usr/lib/python3.10/ssl.py", line 1130, in read
+    return self._sslobj.read(len, buffer)
+KeyboardInterrupt
+CNAE=4651601
+Total de Contratos para cnpj 00.005.644/0001-72: 0
+Total de Contratos para cnpj 00.030.559/0001-64: 0
+Total de Contratos para cnpj 00.118.071/0001-93: 0
+Total de Contratos para cnpj 00.138.528/0001-21: 0
+Total de Contratos para cnpj 00.162.720/0001-53: 16
+Total de Contratos para cnpj 00.179.593/0001-03: 0
+Total de Contratos para cnpj 00.205.354/0001-72: 1
+Total de Contratos para cnpj 00.209.268/0001-38: 0
+Total de Contratos para cnpj 00.245.360/0001-53: 0
+Traceback (most recent call last):
+  File "/home/jluiz/Dev/DOU/ComprasCentralizadas.py", line 74, in <module>
+    ConsultaContratos(fornecedor)
+  File "/home/jluiz/Dev/DOU/ComprasCentralizadas.py", line 48, in ConsultaContratos
+    response = requests.get(base_url+contratos_base_page_url+cnpj_fmt)
+  File "/home/jluiz/.local/lib/python3.10/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/jluiz/.local/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/jluiz/.local/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/jluiz/.local/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/jluiz/.local/lib/python3.10/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/home/jluiz/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 790, in urlopen
+    response = self._make_request(
+  File "/home/jluiz/.local/lib/python3.10/site-packages/urllib3/connectionpool.py", line 536, in _make_request
+    response = conn.getresponse()
+  File "/home/jluiz/.local/lib/python3.10/site-packages/urllib3/connection.py", line 461, in getresponse
+    httplib_response = super().getresponse()
+  File "/usr/lib/python3.10/http/client.py", line 1374, in getresponse
+    response.begin()
+  File "/usr/lib/python3.10/http/client.py", line 318, in begin
+    version, status, reason = self._read_status()
+  File "/usr/lib/python3.10/http/client.py", line 279, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "/usr/lib/python3.10/socket.py", line 705, in readinto
+    return self._sock.recv_into(b)
+  File "/usr/lib/python3.10/ssl.py", line 1274, in recv_into
+    return self.read(nbytes, buffer)
+  File "/usr/lib/python3.10/ssl.py", line 1130, in read
+    return self._sslobj.read(len, buffer)
+KeyboardInterrupt

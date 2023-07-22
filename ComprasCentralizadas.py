@@ -11,9 +11,17 @@ import requests
 import json
 import pandas as pd
 import os
+import sys
+
+print("CNAE="+sys.argv[1])
+
+if not sys.argv[1]:
+    cnae='6203100'
+else:
+    cnae=str(sys.argv[1])
 
 base_url = 'https://compras.dados.gov.br'
-fornecedor_base_page_url = '/fornecedores/v1/fornecedores.json?id_cnae=6203100'
+fornecedor_base_page_url = '/fornecedores/v1/fornecedores.json?id_cnae='+cnae
 contratos_base_page_url = '/comprasContratos/v1/contratos.json?fornecedor_cnpj_cpf_idgener='
 fornecedores = []
 contratos = []
@@ -33,20 +41,24 @@ def AnexaProximasPaginas(links):
 
 #Gera lista detalhada de contratos por CNPJ
 def ConsultaContratos(fornecedor):
-    global contratos
+    #global contratos
     cnpj = fornecedor['cnpj']
-    if os.path.exists("./"+cnpj+".csv"):
+    if not os.path.exists("./"+cnae+'/'+cnpj+".csv"):
         cnpj_fmt =  '{}.{}.{}/{}-{}'.format(cnpj[:2], cnpj[2:5], cnpj[5:8], cnpj[8:12], cnpj[12:])  
         response = requests.get(base_url+contratos_base_page_url+cnpj_fmt)
         resp_dict = response.json()
-        print("Contratos: "+str(len(resp_dict['_embedded']['contratos'])))
-        temp = resp_dict['_embedded']['contratos']
-        contratos = contratos + temp
-        print("Total de Contratos: "+str(len(contratos)))
+        #print("Contratos: "+str(len(resp_dict['_embedded']['contratos'])))
+        contratos = resp_dict['_embedded']['contratos']
+        #contratos = contratos + temp
+        print("Total de Contratos para cnpj "+cnpj_fmt+": "+str(len(contratos)))
         #df = pd.read_json(contratos, orient='records')
         df = pd.json_normalize(contratos)
-        df.to_csv(cnpj+'.csv')
-        print(df)
+
+        if len(contratos) > 1:
+            if not os.path.exists(cnae):
+                os.mkdir(cnae)
+            df.to_csv(cnae+'/'+cnpj+'.csv')
+        #print(df)
     return
 
 
@@ -57,7 +69,7 @@ AnexaProximasPaginas(resp_dict['_links'])
 
 
 for fornecedor in fornecedores:
-    print(fornecedor['nome'])
+    #print(fornecedor['nome'])
     try:
         ConsultaContratos(fornecedor)
     except Exception as e:
