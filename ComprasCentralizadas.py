@@ -58,7 +58,7 @@ def ConsultaContratos(fornecedor):
         if len(contratos) > 1:
             if not os.path.exists(cnae):
                 os.mkdir(cnae)
-            df.to_csv(cnae+'/'+cnpj+'.csv', sep="||")
+            df.to_csv(cnae+'/'+cnpj+'.csv', sep="|")
         #print(df)
     return
 
