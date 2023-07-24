@@ -66,7 +66,9 @@ def ConsultaContratos(fornecedor):
 response = requests.get(base_url+fornecedor_base_page_url)
 resp_dict = response.json()
 fornecedores = resp_dict['_embedded']['fornecedores']
-AnexaProximasPaginas(resp_dict['_links'])
+
+if len(fornecedores) > 500: 
+    AnexaProximasPaginas(resp_dict['_links'])
 
 
 for fornecedor in fornecedores:
