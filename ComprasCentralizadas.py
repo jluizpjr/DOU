@@ -36,6 +36,7 @@ def AnexaProximasPaginas(links):
         response = requests.get(base_url+fornecedor_next_page_url)
         resp_dict = response.json()
         temp = resp_dict['_embedded']['fornecedores']
+        print("Fornecedores na proxima pagina:"+str(len(temp)))
         fornecedores = fornecedores + temp
         AnexaProximasPaginas(resp_dict['_links'])
     return 
@@ -67,7 +68,10 @@ response = requests.get(base_url+fornecedor_base_page_url)
 resp_dict = response.json()
 fornecedores = resp_dict['_embedded']['fornecedores']
 
-if len(fornecedores) > 500: 
+print("Quantidade de fornecedores para o CNAE:" + str(len(fornecedores)))
+exit
+
+if len(fornecedores) > 499: 
     AnexaProximasPaginas(resp_dict['_links'])
 
 print("Quantidade de fornecedores para o CNAE:" + str(len(fornecedores)))
