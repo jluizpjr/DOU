@@ -55,7 +55,7 @@ def ConsultaContratos(fornecedor):
         #df = pd.read_json(contratos, orient='records')
         df = pd.json_normalize(contratos)
 
-        if len(contratos) > 1:
+        if len(contratos) > 0:
             if not os.path.exists(cnae):
                 os.mkdir(cnae)
             df.to_csv(cnae+'/'+cnpj+'.csv', sep="|")
