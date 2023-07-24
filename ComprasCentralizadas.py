@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 # Lista de empresas com CNAE de venda de SW
 # https://compras.dados.gov.br/fornecedores/v1/fornecedores.csv?id_cnae=6203100
 
@@ -75,4 +76,5 @@ for fornecedor in fornecedores:
     except Exception as e:
         print("Erro na leitura do JSON")
 
+print("Fim de processamento.")
 
