@@ -70,6 +70,7 @@ fornecedores = resp_dict['_embedded']['fornecedores']
 if len(fornecedores) > 500: 
     AnexaProximasPaginas(resp_dict['_links'])
 
+print("Quantidade de fornecedores para o CNAE:" + len(fornecedores))
 
 for fornecedor in fornecedores:
     #print(fornecedor['nome'])
