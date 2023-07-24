@@ -22,17 +22,26 @@ fornecedores = []
 contratos = []
 
 # Verifica se existem mais paginas e apenda conteudo no json fornecedores
-def AnexaProximasPaginas(links,cnae):
+def AnexaProximasPaginas(links):
+    print("Pagina Adicional Encontrada. Navegando.")
+    global fornecedores
+    fornecedor_next_page_url = links['next']['href']
 
-    if "next" in links:
-        global fornecedores
-        fornecedor_next_page_url = links['next']['href']
-        response = requests.get(base_url+fornecedor_next_page_url+cnae)
+    response = requests.get(base_url+fornecedor_next_page_url)
+    if response.status_code == 200:
         resp_dict = response.json()
-        temp = resp_dict['_embedded']['fornecedores']
-        fornecedores = fornecedores + temp
-        AnexaProximasPaginas(resp_dict['_links'],cnae)
-    return 
+    else:
+        print("Error from server: " + str(response.content))
+        return
+
+    temp = resp_dict['_embedded']['fornecedores']
+    fornecedores = fornecedores + temp
+
+    links = resp_dict['_links']
+    if "next" in links:
+        AnexaProximasPaginas(links)
+    return
+
 
 #Gera lista detalhada de contratos por CNPJ
 def ConsultaContratos(fornecedor,cnae):
@@ -40,7 +49,11 @@ def ConsultaContratos(fornecedor,cnae):
     if not os.path.exists("./"+cnae+'/'+cnpj+".csv"):
         cnpj_fmt =  '{}.{}.{}/{}-{}'.format(cnpj[:2], cnpj[2:5], cnpj[5:8], cnpj[8:12], cnpj[12:])  
         response = requests.get(base_url+contratos_base_page_url+cnpj_fmt)
-        resp_dict = response.json()
+        if response.status_code == 200:
+            resp_dict = response.json()
+        else:
+            print("Error from server: " + str(response.content))
+            return
         contratos = resp_dict['_embedded']['contratos']
         print("Total de Contratos para cnpj "+cnpj_fmt+": "+str(len(contratos)))
         df = pd.json_normalize(contratos)
@@ -51,14 +64,20 @@ def ConsultaContratos(fornecedor,cnae):
     return
 
 
-def ProcuraContratos(cnae):
-
+def ListaFornecedores(cnae):
+    global fornecedores
     response = requests.get(base_url+fornecedor_base_page_url+cnae)
-    resp_dict = response.json()
-    fornecedores = resp_dict['_embedded']['fornecedores']
+    if response.status_code == 200:
+        resp_dict = response.json()
+    else:
+        print("Error from server: " + str(response.content))
+        return
 
-    if len(fornecedores) > 499: 
-        AnexaProximasPaginas(resp_dict['_links'],cnae)
+    fornecedores = resp_dict['_embedded']['fornecedores']
+    links = resp_dict['_links']
+
+    if "next" in links:
+        AnexaProximasPaginas(links)
 
     print("Quantidade de fornecedores para o CNAE:" + str(len(fornecedores)))
 
@@ -74,10 +93,11 @@ file_cnae = open('cnae.txt', 'r')
 lines = file_cnae.readlines()
 
 for line in lines:
-    print(line.strip())
-    print("Processando CNAE: "+line.strip())
-    ProcuraContratos(line.strip())
-    print("Fim CNAE:"+line.strip())
+    cnae = line.strip()
+    print(cnae)
+    print("Processando CNAE: "+cnae)
+    ListaFornecedores(cnae)
+    print("Fim CNAE:"+cnae)
 
 print("Fim de processamento.")
 
