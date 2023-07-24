@@ -74,6 +74,7 @@ file_cnae = open('cnae.txt', 'r')
 lines = file_cnae.readlines()
 
 for line in lines:
+    print(line.strip())
     print("Processando CNAE: "+line.strip())
     ProcuraContratos(line.strip())
     print("Fim CNAE:"+line.strip())
