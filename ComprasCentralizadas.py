@@ -31,11 +31,11 @@ def AnexaProximasPaginas(links,cnae):
         resp_dict = response.json()
         temp = resp_dict['_embedded']['fornecedores']
         fornecedores = fornecedores + temp
-        AnexaProximasPaginas(resp_dict['_links'])
+        AnexaProximasPaginas(resp_dict['_links'],cnae)
     return 
 
 #Gera lista detalhada de contratos por CNPJ
-def ConsultaContratos(fornecedor):
+def ConsultaContratos(fornecedor,cnae):
     cnpj = fornecedor['cnpj']
     if not os.path.exists("./"+cnae+'/'+cnpj+".csv"):
         cnpj_fmt =  '{}.{}.{}/{}-{}'.format(cnpj[:2], cnpj[2:5], cnpj[5:8], cnpj[8:12], cnpj[12:])  
@@ -51,7 +51,7 @@ def ConsultaContratos(fornecedor):
     return
 
 
-def BaixaContratos(cnae):
+def ProcuraContratos(cnae):
 
     response = requests.get(base_url+fornecedor_base_page_url+cnae)
     resp_dict = response.json()
@@ -64,7 +64,7 @@ def BaixaContratos(cnae):
 
     for fornecedor in fornecedores:
         try:
-            ConsultaContratos(fornecedor)
+            ConsultaContratos(fornecedor,cnae)
         except Exception as e:
             print("Erro na leitura do JSON")
     return
@@ -75,7 +75,7 @@ lines = file_cnae.readlines()
 
 for line in lines:
     print("Processando CNAE: "+line.strip())
-    BaixaContratos(line.strip())
+    ProcuraContratos(line.strip())
     print("Fim CNAE:"+line.strip())
 
 print("Fim de processamento.")
