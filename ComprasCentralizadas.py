@@ -22,12 +22,12 @@ fornecedores = []
 contratos = []
 
 # Verifica se existem mais paginas e apenda conteudo no json fornecedores
-def AnexaProximasPaginas(links):
+def AnexaProximasPaginas(links,cnae):
 
     if "next" in links:
         global fornecedores
         fornecedor_next_page_url = links['next']['href']
-        response = requests.get(base_url+fornecedor_next_page_url)
+        response = requests.get(base_url+fornecedor_next_page_url+cnae)
         resp_dict = response.json()
         temp = resp_dict['_embedded']['fornecedores']
         fornecedores = fornecedores + temp
@@ -58,7 +58,7 @@ def BaixaContratos(cnae):
     fornecedores = resp_dict['_embedded']['fornecedores']
 
     if len(fornecedores) > 499: 
-        AnexaProximasPaginas(resp_dict['_links'])
+        AnexaProximasPaginas(resp_dict['_links'],cnae)
 
     print("Quantidade de fornecedores para o CNAE:" + str(len(fornecedores)))
 
