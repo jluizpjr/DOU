@@ -27,7 +27,7 @@ def AnexaProximasPaginas(links):
     global fornecedores
     fornecedor_next_page_url = links['next']['href']
 
-    response = requests.get(base_url+fornecedor_next_page_url, timeout=30)
+    response = requests.get(base_url+fornecedor_next_page_url, timeout=60)
     if response.status_code == 200:
         resp_dict = response.json()
     else:
@@ -48,7 +48,7 @@ def ConsultaContratos(fornecedor,cnae):
     cnpj = fornecedor['cnpj']
     if not os.path.exists("./"+cnae+'/'+cnpj+".csv"):
         cnpj_fmt =  '{}.{}.{}/{}-{}'.format(cnpj[:2], cnpj[2:5], cnpj[5:8], cnpj[8:12], cnpj[12:])  
-        response = requests.get(base_url+contratos_base_page_url+cnpj_fmt, timeout=30)
+        response = requests.get(base_url+contratos_base_page_url+cnpj_fmt, timeout=60)
         if response.status_code == 200:
             resp_dict = response.json()
         else:
@@ -71,7 +71,7 @@ def ConsultaContratos(fornecedor,cnae):
 
 def ListaFornecedores(cnae):
     global fornecedores
-    response = requests.get(base_url+fornecedor_base_page_url+cnae, timeout=30)
+    response = requests.get(base_url+fornecedor_base_page_url+cnae, timeout=60)
     if response.status_code == 200:
         resp_dict = response.json()
     else:
